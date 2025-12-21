@@ -46,6 +46,16 @@ clientTransport.addTransport(serverTransport);
 const server = rpc.serve({
 	async add(a, b) {
 		return a + b;
+	},
+	async throwError() {
+		throw new Error('This is a test error.');
+	},
+	timeout() {
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				resolve('done');
+			}, 300);
+		});
 	}
 }, (command, data) => {
 	serverTransport.send(command, data);
@@ -53,6 +63,8 @@ const server = rpc.serve({
 
 const client = rpc.connect((command, data) => {
 	clientTransport.send(command, data);
+}, {
+	timeout: 200
 });
 
 serverTransport.on('message', ({ command, data }) => {
@@ -69,6 +81,14 @@ describe('RPC', () => {
 
 		it('should perform a basic RPC call', () => {
 			return expect(client.remote.add(2, 3)).to.eventually.equal(5);
+		});
+
+		it ('should handle errors from the server', () => {
+			return expect(client.remote.throwError()).to.be.rejectedWith('This is a test error.');
+		});
+
+		it ('should handle timeouts', () => {
+			return expect(client.remote.timeout()).to.be.rejectedWith('RPC: Timeout waiting for response.');
 		});
 
 	});
