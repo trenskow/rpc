@@ -19,22 +19,29 @@ export interface RPC<D> {
 
 }
 
-export class Server<T extends object> extends RPC<any[]> {
+export class Server<T extends object> implements RPC<any[]> {
 
 	private readonly local: T;
+
+	sender: MessageSender;
 	
 	constructor(
 		local: T,
 		sender?: MessageSender
 	)
 
-};
+	onMessage(
+		command: string,
+		data: any[]
+	): void;
+
+}
 
 interface ClientOptions {
 	timeout?: number;
 }
 
-export class Client<T extends object> extends RPC<any> {
+export class Client<T extends object> implements RPC<any> {
 
 	readonly remote: T;
 
@@ -45,18 +52,25 @@ export class Client<T extends object> extends RPC<any> {
 		options?: ClientOptions
 	)
 
+	onMessage(
+		command: string,
+		data: any
+	): void;
+
 }
 
-function serve<T extends object>(
+type Serve = <T extends object>(
 	handler: T,
 	sender: MessageSender
-): Server<T>;
+) => Server<T>;
 
-function connect<T extends object>(
+type Connect = <T extends object>(
 	sender: MessageSender
-): Client<T>;
+) => Client<T>;
 
-export default {
-	serve,
-	connect
-};
+declare const rpc: {
+	serve: Serve;
+	connect: Connect;
+}
+
+export default rpc;
