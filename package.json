@@ -1,0 +1,34 @@
+{
+	"name": "@trenskow/rpc",
+	"version": "0.1.0",
+	"description": "A simple RPC server and client for JavaScript.",
+	"keywords": [
+		"rpc",
+		"json"
+	],
+	"homepage": "https://github.com/trenskow/rpc#readme",
+	"bugs": {
+		"url": "https://github.com/trenskow/rpc/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/trenskow/rpc.git"
+	},
+	"license": "BSD-2-Clause",
+	"author": "Kristian Trenskow <this.is@kristians.email>",
+	"type": "module",
+	"main": "index.js",
+	"types": "index.d.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3.3.3",
+		"@eslint/js": "^9.39.2",
+		"eslint": "^9.39.2",
+		"globals": "^16.5.0"
+	},
+	"dependencies": {
+		"@trenskow/json-compressor": "^0.1.2"
+	}
+}
