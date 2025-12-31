@@ -68,7 +68,7 @@ const client = rpc.connect((command, data) => {
 });
 
 serverTransport.on('message', ({ command, data }) => {
-	server.onMessage(command, ...data);
+	server.onMessage(command, data);
 });
 
 clientTransport.on('message', ({ command, data }) => {
