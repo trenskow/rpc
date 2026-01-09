@@ -44,8 +44,10 @@ serverTransport.addTransport(clientTransport);
 clientTransport.addTransport(serverTransport);
 
 const server = rpc.serve({
-	async add(a, b) {
-		return a + b;
+	math: {
+		async add(a, b) {
+			return a + b;
+		}
 	},
 	async throwError() {
 		throw new Error('This is a test error.');
@@ -80,7 +82,7 @@ describe('RPC', () => {
 	describe('Basic Functionality', () => {
 
 		it('should perform a basic RPC call', () => {
-			return expect(client.remote.add(2, 3)).to.eventually.equal(5);
+			return expect(client.remote.math.add(2, 3)).to.eventually.equal(5);
 		});
 
 		it ('should handle errors from the server', () => {
@@ -89,6 +91,10 @@ describe('RPC', () => {
 
 		it ('should handle timeouts', () => {
 			return expect(client.remote.timeout()).to.be.rejectedWith('RPC: Timeout waiting for response.');
+		});
+
+		it ('should throw when calling a non-existing method', () => {
+			return expect(client.remote.nonExisting.method()).to.be.rejectedWith('RPC: Method nonExisting.method is not a function on the handler.');
 		});
 
 	});
