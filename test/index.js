@@ -50,7 +50,9 @@ const server = rpc.serve({
 		}
 	},
 	async throwError() {
-		throw new Error('This is a test error.');
+		throw Object.assign(new Error('This is a test error.'), {
+			test: true
+		});
 	},
 	timeout() {
 		return new Promise((resolve) => {
@@ -81,19 +83,29 @@ describe('RPC', () => {
 
 	describe('Basic Functionality', () => {
 
-		it('should perform a basic RPC call', () => {
+		it('should perform a basic RPC call.', () => {
 			return expect(client.remote.math.add(2, 3)).to.eventually.equal(5);
 		});
 
-		it ('should handle errors from the server', () => {
+		it ('should handle errors from the server.', () => {
 			return expect(client.remote.throwError()).to.be.rejectedWith('This is a test error.');
 		});
 
-		it ('should handle timeouts', () => {
+		it ('should handle errors with custom properties.', () => {
+			return expect((async () => {
+				try {
+					await client.remote.throwError();
+				} catch (error) {
+					return error;
+				}
+			})()).to.eventually.have.property('test', true);
+		});
+
+		it ('should handle timeouts.', () => {
 			return expect(client.remote.timeout()).to.be.rejectedWith('RPC: Timeout waiting for response.');
 		});
 
-		it ('should throw when calling a non-existing method', () => {
+		it ('should throw when calling a non-existing method.', () => {
 			return expect(client.remote.nonExisting.method()).to.be.rejectedWith('RPC: Method nonExisting.method is not a function on the handler.');
 		});
 
