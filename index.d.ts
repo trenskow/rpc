@@ -66,7 +66,8 @@ type Serve = <T extends object>(
 ) => Server<T>;
 
 type Connect = <T extends object>(
-	sender: MessageSender
+	sender: MessageSender,
+	options?: ClientOptions
 ) => Client<T>;
 
 declare const rpc: {
