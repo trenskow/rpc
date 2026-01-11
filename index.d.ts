@@ -39,6 +39,7 @@ export class Server<T extends object> implements RPC<any[]> {
 
 interface ClientOptions {
 	timeout?: number;
+	sanitizeErrors?: (error: Error) => Error;
 }
 
 export class Client<T extends object> implements RPC<any> {
