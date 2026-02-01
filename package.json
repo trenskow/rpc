@@ -1,6 +1,6 @@
 {
 	"name": "@trenskow/rpc",
-	"version": "0.1.13",
+	"version": "0.1.14",
 	"description": "A simple RPC server and client for JavaScript.",
 	"keywords": [
 		"rpc",
