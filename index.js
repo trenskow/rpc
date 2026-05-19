@@ -1,6 +1,6 @@
 //
 // index.js
-// 0-bit-games-frontend-vscode
+// @trenskow/rpc
 //
 // Created by Kristian Trenskow on 2025/12/21
 // See license in LICENSE.
