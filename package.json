@@ -29,10 +29,10 @@
 		"chai-as-promised": "^8.0.2",
 		"eslint": "^10.4.0",
 		"globals": "^17.6.0",
-		"mocha": "^11.7.5"
+		"mocha": "^11.7.6"
 	},
 	"dependencies": {
-		"@trenskow/json-compressor": "^0.1.10",
-		"keyd": "^2.1.58"
+		"@trenskow/json-compressor": "^0.1.11",
+		"keyd": "^2.1.61"
 	}
 }
