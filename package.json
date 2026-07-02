@@ -33,6 +33,6 @@
 	},
 	"dependencies": {
 		"@trenskow/json-compressor": "^0.1.14",
-		"keyd": "^2.1.67"
+		"keyd": "^2.1.68"
 	}
 }
