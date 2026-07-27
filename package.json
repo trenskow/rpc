@@ -27,12 +27,12 @@
 		"@eslint/js": "^10.0.1",
 		"chai": "^6.2.2",
 		"chai-as-promised": "^8.0.2",
-		"eslint": "^10.7.0",
-		"globals": "^17.7.0",
+		"eslint": "^10.8.0",
+		"globals": "^17.8.0",
 		"mocha": "^11.7.6"
 	},
 	"dependencies": {
-		"@trenskow/json-compressor": "^0.1.15",
-		"keyd": "^2.1.70"
+		"@trenskow/json-compressor": "^0.1.16",
+		"keyd": "^2.1.71"
 	}
 }
