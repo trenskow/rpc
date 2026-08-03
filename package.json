@@ -28,11 +28,11 @@
 		"chai": "^6.2.2",
 		"chai-as-promised": "^8.0.2",
 		"eslint": "^10.8.0",
-		"globals": "^17.8.0",
-		"mocha": "^11.7.6"
+		"globals": "^17.9.0",
+		"mocha": "^11.8.0"
 	},
 	"dependencies": {
-		"@trenskow/json-compressor": "^0.1.16",
-		"keyd": "^2.1.72"
+		"@trenskow/json-compressor": "^0.1.17",
+		"keyd": "^2.1.73"
 	}
 }
