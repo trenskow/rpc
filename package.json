@@ -25,14 +25,14 @@
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.3.7",
 		"@eslint/js": "^10.0.1",
-		"chai": "^6.2.2",
+		"chai": "^6.3.0",
 		"chai-as-promised": "^8.0.2",
-		"eslint": "^10.11.0",
-		"globals": "^17.12.0",
-		"mocha": "^12.0.2"
+		"eslint": "^10.12.0",
+		"globals": "^17.13.0",
+		"mocha": "^12.0.3"
 	},
 	"dependencies": {
-		"@trenskow/json-compressor": "^0.1.24",
+		"@trenskow/json-compressor": "^0.1.25",
 		"keyd": "^2.1.82"
 	}
 }
