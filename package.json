@@ -32,7 +32,7 @@
 		"mocha": "^12.0.3"
 	},
 	"dependencies": {
-		"@trenskow/json-compressor": "^0.1.27",
-		"keyd": "^2.1.84"
+		"@trenskow/json-compressor": "^0.1.28",
+		"keyd": "^2.1.86"
 	}
 }
